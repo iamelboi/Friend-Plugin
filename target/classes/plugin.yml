@@ -1,0 +1,11 @@
+name: FriendPlugin
+version: 1.0
+author: IamElBoi
+main: fr.iamelboi.friendplugin.Main
+commands:
+  test:
+    description: Ceci est une commande de test
+    permission: test.use
+  alert:
+    description: Ceci est un broadcast custom
+    permission: bc.use
