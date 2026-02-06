@@ -4,9 +4,13 @@ author: IamElBoi
 main: fr.iamelboi.friendplugin.Main
 commands:
   friend-add:
-    description: Allows a player to add a friend
+    description: Allows a player to send a friend request to another player
     usage: /friend-add <username>
     permission: friendplugin.friendadd
+  friend-remove:
+    description: Allows a player to remove a friend from his friend lisr
+    usage: /friend-remove <username>
+    permission: friendplugin.friendremove
 
 
   test:

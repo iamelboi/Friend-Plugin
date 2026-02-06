@@ -10,6 +10,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         System.out.println("[FriendPlugin]: Plugin enabled");
         getCommand("friend-add").setExecutor(new CommandFriends());
+        getCommand("friend-remove").setExecutor(new CommandFriends());
 
 
         getCommand("test").setExecutor(new CommandTest());

@@ -11,10 +11,11 @@ import java.util.UUID;
 
 public class CommandFriends implements CommandExecutor {
 
+    private FriendsCache friendsCache = new FriendsCache();
+    private PlayerCache playerCache = new PlayerCache();
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String msg, String[] args) {
-        FriendsCache friendsCache = new FriendsCache();
-        PlayerCache playerCache = new PlayerCache();
 
         if (sender instanceof Player){
             Player player = (Player) sender;
@@ -58,7 +59,32 @@ public class CommandFriends implements CommandExecutor {
                 friendsCache.getRelationByUUID(player.getUniqueId()).addFriend(uuidTarget);
                 return true;
             }
+
+            else if (cmd.getName().equalsIgnoreCase("friend-remove")){
+                System.out.println(player.getName() + " executed /friend-add");
+                String username = args[0];
+                System.out.println("Target username: " + username);
+
+                //Check si le joueur choisi existe
+                UUID uuidTarget = playerCache.getUUIDByUsername(username);
+                if (uuidTarget == null){
+                    player.sendMessage("§6Friend plugin >§c Le joueur §r" + username + "§c n'existe pas !");
+                    return true;
+                }
+
+                //Check si le joueur l'a dans sa liste d'ami
+                if (friendsCache.getRelationByUUID(player.getUniqueId()).isFriend(uuidTarget)){
+                    friendsCache.getRelationByUUID(player.getUniqueId()).removeFriend(uuidTarget);
+                    return true;
+                }
+                else{
+                    player.sendMessage("§6Friend plugin >§c Le joueur §r" + username + "§c n'est pas dans votre liste d'amis !");
+                    return true;
+                }
+            }
         }
+
+
         return false;
     }
 }
