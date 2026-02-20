@@ -11,6 +11,30 @@ commands:
     description: Allows a player to remove a friend from his friend lisr
     usage: /friend-remove <username>
     permission: friendplugin.friendremove
+  seeReceive:
+    description: Allows a player to see his uncoming friend requests
+    usage: /seeReceive
+    permission: friendplugin.seeReceive
+  seeAllList:
+    description: Allows a player to see his friend list
+    usage: /seeAllList
+    permission: friendplugin.seeAllList
+  deleteAllFriend:
+    description: Allows a player to remove his entire friend list
+    usage: /deleteAllFriend
+    permission: friendplugin.deleteAllFriend
+  seeAllConnected:
+    description: Allow a player to see all his friends that are connected to the server
+    usage: /seeAllConnected
+    permission: friendplugin.seeAllConnected
+  friend-accept:
+    description: Allows a player to accept an incoming friend request
+    usage: /friend-accept <username>
+    permission: friendplugin.accept
+  friend-deny:
+    description: Allows a player to deny an incoming friend request
+    usage: /friend-deny <username>
+    permission: friendplugin.deny
 
 
   test:
